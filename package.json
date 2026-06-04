@@ -1,0 +1,23 @@
+{
+  "name": "biztech-mqtt-server-framework",
+  "version": "1.0.0",
+  "description": "Generic health-check framework that publishes raw metrics to an MQTT broker",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+"dependencies": {
+    "@electric-sql/pglite": "^0.5.1",
+    "better-sqlite3": "^12.10.0",
+    "dotenv": "^17.4.2",
+    "mqtt": "^5.15.1",
+    "node-cron": "^4.2.1",
+    "ping": "^1.0.0",
+    "uuid": "^14.0.0"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "id": "csv_input",
+      "type": "file_mtime",
+      "label": "CSV Input Folder",
+      "refreshMinutes": 10,
+      "config": {
+        "path": "/data/csv/new",
+        "extensions": [".csv"],
+        "recursive": true
+      }
+    },
+    {
+      "id": "etl_db_sqlite",
+      "type": "db_currency",
+      "label": "ETL SQLite Database",
+      "refreshMinutes": 10,
+      "config": {
+        "dbType": "sqlite",
+        "path": "/data/etl.sqlite3",
+        "table": "GreenTally",
+        "column": "BusinessDate"
+      }
+    },
+    {
+      "id": "etl_db_pglite",
+      "type": "db_currency",
+      "label": "ETL PGLite Database",
+      "refreshMinutes": 10,
+      "config": {
+        "dbType": "pglite",
+        "path": "/data/pgdata",
+        "table": "events",
+        "column": "created_at"
+      }
+    },
+    {
+      "id": "server_tcp",
+      "type": "tcp",
+      "label": "App Server (TCP)",
+      "refreshMinutes": 1,
+      "config": {
+        "host": "192.168.1.100",
+        "port": 443,
+        "timeout": 5000
+      }
+    },
+    {
+      "id": "server_icmp",
+      "type": "icmp",
+      "label": "App Server (ICMP)",
+      "refreshMinutes": 1,
+      "config": {
+        "host": "192.168.1.100",
+        "count": 4
+      }
+    }
+  ]
+}
