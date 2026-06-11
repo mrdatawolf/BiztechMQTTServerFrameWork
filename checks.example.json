@@ -56,5 +56,19 @@
         "count": 4
       }
     }
+  ],
+  "connectionTests": [
+    {
+      "id": "ae_cable_from_eureka",
+      "type": "icmp",
+      "label": "A&E Cable (from Eureka NOC)",
+      "refreshMinutes": 1,
+      "subjectId": "ae_cable_wan",
+      "subjectLabel": "A&E Cable - WAN circuit",
+      "config": {
+        "host": "173.219.118.92",
+        "count": 4
+      }
+    }
   ]
 }
