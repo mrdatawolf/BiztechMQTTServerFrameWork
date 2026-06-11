@@ -36,6 +36,16 @@ function createStore(dbPath) {
         'SELECT payload FROM check_results WHERE checkId = ? ORDER BY id DESC LIMIT ?'
       ).all(checkId, Math.min(limit, 500)).map(r => JSON.parse(r.payload));
     },
+    getRecentResults(checkId, limit) {
+      return db.prepare(
+        'SELECT payload FROM check_results WHERE checkId = ? ORDER BY id DESC LIMIT ?'
+      ).all(checkId, limit).map(r => JSON.parse(r.payload));
+    },
+    getResultsSince(checkId, sinceISO) {
+      return db.prepare(
+        'SELECT payload FROM check_results WHERE checkId = ? AND checkedAt >= ? ORDER BY id ASC'
+      ).all(checkId, sinceISO).map(r => JSON.parse(r.payload));
+    },
   };
 }
 

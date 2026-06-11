@@ -9,6 +9,7 @@ function createHeartbeat(publisher, config) {
       systemId: config.systemId,
       serverStarted,
       checks: config.checks.map(({ id, type, label, schedule }) => ({ id, type, label, schedule })),
+      connectionTests: config.connectionTests.map(({ id, type, label, subjectId, subjectLabel }) => ({ id, type, label, subjectId, subjectLabel })),
       publishedAt: new Date().toISOString(),
     });
   }
